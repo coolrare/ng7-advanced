@@ -4,7 +4,8 @@
     "outDir": "../out-tsc/app",
     "types": [
       "jquery",
-      "datatables.net"
+      "datatables.net",
+      "morris.js"
     ]
   },
   "exclude": [
