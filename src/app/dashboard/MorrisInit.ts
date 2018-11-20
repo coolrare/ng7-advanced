@@ -1,4 +1,4 @@
-export function DashboardInit() {
+export function MorrisInit() {
   Morris.Area({
     element: 'morris-area-chart',
     data: [

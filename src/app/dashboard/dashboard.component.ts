@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardInit } from './DashboardInit';
+import { MorrisInit } from './MorrisInit';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +10,6 @@ export class DashboardComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    DashboardInit();
+    MorrisInit();
   }
 }
