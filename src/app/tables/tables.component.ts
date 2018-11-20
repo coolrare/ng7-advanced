@@ -21,6 +21,10 @@ export class TablesComponent implements OnInit {
   }
 
   addOne() {
-    this.router.navigateByUrl('/tables/' + (this.num + 1));
+    // this.router.navigateByUrl('/tables/' + (this.num + 1));
+
+    // this.router.navigateByUrl(`/tables/${this.num + 1}`);
+
+    this.router.navigate(['/tables', this.num + 1]);
   }
 }
