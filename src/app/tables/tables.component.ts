@@ -12,7 +12,7 @@ export class TablesComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(p => {
-      this.num = +p['num'];
+      this.num = +(p['num'] || 0);
     });
 
     $('#dataTables-example').DataTable({
