@@ -7,17 +7,13 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TablesComponent } from './tables/tables.component';
-import { FlotComponent } from './charts/flot/flot.component';
-import { MorrisComponent } from './charts/morris/morris.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
     DashboardComponent,
-    TablesComponent,
-    FlotComponent,
-    MorrisComponent
+    TablesComponent
   ],
   imports: [
     BrowserModule,
