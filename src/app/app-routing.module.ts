@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'tables', component: TablesComponent },
+  { path: 'tables/:num', component: TablesComponent },
   {
     path: 'charts',
     children: [

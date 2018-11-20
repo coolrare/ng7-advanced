@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tables',
@@ -6,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tables.component.css']
 })
 export class TablesComponent implements OnInit {
-  constructor() {}
+  num;
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.num = this.route.snapshot.params['num'];
+
     $('#dataTables-example').DataTable({
       responsive: true
     });
