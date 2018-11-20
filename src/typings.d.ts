@@ -1,0 +1,3 @@
+interface JQueryStatic {
+  plot: any;
+}
