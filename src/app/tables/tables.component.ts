@@ -11,7 +11,9 @@ export class TablesComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.num = this.route.snapshot.params['num'];
+    this.route.params.subscribe(p => {
+      this.num = p['num'];
+    });
 
     $('#dataTables-example').DataTable({
       responsive: true
