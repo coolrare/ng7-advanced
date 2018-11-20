@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, Event, NavigationError } from '@angular/router';
+import { filter, pairwise } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,17 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title = 'ng7-advanced';
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
-    // this.router.events.subscribe(evt => {});
+    this.router.events
+      .pipe(
+        filter(v => v instanceof NavigationError),
+        pairwise()
+      )
+      .subscribe(([event_prev, event_curr]: [NavigationError, NavigationError]) => {
+        // event_prev
+        // event_curr
+      });
   }
 }
