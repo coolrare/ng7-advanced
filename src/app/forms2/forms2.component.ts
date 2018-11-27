@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-forms2',
@@ -14,18 +14,32 @@ export class Forms2Component implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      name: ['Will', [Validators.required, Validators.minLength(3)]],
 
-      group1: this.fb.group({
-        email: ['example@example.com', [Validators.required]]
-      })
+      contacts: this.fb.array([
+        this.fb.group({
+          name: ['Will', [Validators.required, Validators.minLength(3)]],
+          email: ['example@example.com', [Validators.required]]
+        }),
+        this.fb.group({
+          name: ['Will', [Validators.required, Validators.minLength(3)]],
+          email: ['example@example.com', [Validators.required]]
+        })
+      ])
 
     });
   }
 
   ToggleEnable(name: string) {
-    const ctrl = this.form.get(name) as FormControl;
+    const ctrl = this.form.get(name);
     ctrl.disabled ? ctrl.enable() : ctrl.disable();
+  }
+
+  AddNewContact() {
+    const arr = this.form.get('contacts') as FormArray;
+    arr.push(this.fb.group({
+      name: ['Will', [Validators.required, Validators.minLength(3)]],
+      email: ['example@example.com', [Validators.required]]
+    }));
   }
 
 }
