@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TablesComponent } from './tables/tables.component';
 import { AuthGuard } from './auth.guard';
 import { FormsComponent } from './forms/forms.component';
+import { Forms2Component } from './forms2/forms2.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
     loadChildren: './charts/charts.module#ChartsModule'
   },
   { path: 'forms', component: FormsComponent },
+  { path: 'forms2', component: Forms2Component },
   fallbackRoute
 ];
 

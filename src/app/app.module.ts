@@ -9,6 +9,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TablesComponent } from './tables/tables.component';
 import { FormsComponent } from './forms/forms.component';
+import { Forms2Component } from './forms2/forms2.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsComponent } from './forms/forms.component';
     NotFoundComponent,
     DashboardComponent,
     TablesComponent,
-    FormsComponent
+    FormsComponent,
+    Forms2Component
   ],
   imports: [
     BrowserModule,
