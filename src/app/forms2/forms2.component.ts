@@ -27,6 +27,13 @@ export class Forms2Component implements OnInit {
       ])
 
     });
+
+    this.form.reset({
+      contacts: [
+        { name: 'John', email: 'example1@miniasp.com' },
+        { name: 'Will', email: 'example2@miniasp.com' }
+      ]
+    });
   }
 
   ToggleEnable(ctrl: FormControl) {
