@@ -22,7 +22,7 @@ form.enabled = {{ form.enabled }}
 form.disabled = {{ form.disabled }}
 form.errors = {{ form.errors | json }}</pre>
               <div class="form-group" [class.has-error]="form.get('name').dirty && form.get('name').invalid">
-                <label>姓名</label>
+                <label>姓名 <button type="button" (click)="ToggleEnable('name')">Disable/Enable</button></label>
                 <input class="form-control" formControlName="name" />
                 <pre>form.get('name').value = {{ form.get('name').value }}
 form.get('name').valid = {{ form.get('name').valid }}
