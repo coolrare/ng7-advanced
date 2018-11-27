@@ -37,11 +37,17 @@ form.get('name').errors = {{ form.get('name').errors | json }}</pre>
                 <p class="help-block" *ngIf="form.get('name')['errors']?.required">姓名為必填欄位</p>
                 <p class="help-block" *ngIf="form.get('name')['errors']?.minlength">姓名欄位有長度限制，至少 {{ form.get('name')['errors'].minlength.requiredLength }} 個字元以上，您輸入 {{ form.get('name')['errors'].minlength.actualLength }} 個字元。</p>
               </div>
-              <div class="form-group" [class.has-error]="form.get('email').dirty && form.get('email').invalid">
+
+<div formGroupName="group1">
+
+              <div class="form-group" [class.has-error]="form.get('group1.email').dirty && form.get('group1.email').invalid">
                 <label>電子郵件</label>
                 <input class="form-control" formControlName="email" />
-                <p class="help-block" *ngIf="form.get('email')['errors']?.required">Email 為必填欄位</p>
+                <p class="help-block" *ngIf="form.get('group1.email')['errors']?.required">Email 為必填欄位</p>
               </div>
+
+</div>
+
               <div class="form-group">
                 <label>Static Control</label>
                 <p class="form-control-static">email@example.com</p>

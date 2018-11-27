@@ -15,7 +15,11 @@ export class Forms2Component implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({
       name: ['Will', [Validators.required, Validators.minLength(3)]],
-      email: ['example@example.com', [Validators.required]]
+
+      group1: this.fb.group({
+        email: ['example@example.com', [Validators.required]]
+      })
+
     });
   }
 
