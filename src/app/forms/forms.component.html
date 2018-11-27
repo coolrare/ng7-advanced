@@ -22,11 +22,16 @@ form.pristine = {{ form.pristine }}
 form.enabled = {{ form.enabled }}
 form.disabled = {{ form.disabled }}
 form.errors = {{ form.errors | json }}</pre>
+
+<button type="button" (click)="data.push({})">+</button>
+
+<div [ngModelGroup]="'group' + i" #group1="ngModelGroup" *ngFor="let item of data;let i=index">
+
               <div class="form-group" [class.has-error]="tName.dirty && tName.invalid">
-                <label>姓名</label>
+                <label>姓名 {{i+1}}</label>
                 <input class="form-control" name="name" placeholder="請輸入姓名"
                        required minlength="2" maxlength="16"
-                       [(ngModel)]="data.name" #tName="ngModel" />
+                       [(ngModel)]="data[i].name" #tName="ngModel" />
                 <pre>tName.value = {{ tName.value }}
 tName.valid = {{ tName.valid }}
 tName.invalid = {{ tName.invalid }}
@@ -41,12 +46,10 @@ tName.errors = {{ tName.errors | json }}</pre>
                 <p class="help-block" *ngIf="tName['errors']?.minlength">姓名欄位有長度限制，至少 {{ tName['errors'].minlength.requiredLength }} 個字元以上，您輸入 {{ tName['errors'].minlength.actualLength }} 個字元。</p>
               </div>
 
-<div ngModelGroup="group1" #group1="ngModelGroup" *ngIf="tName.valid">
-
               <div class="form-group" [class.has-error]="tEmail.dirty && tEmail.invalid">
-                <label>電子郵件</label>
+                <label>電子郵件 {{i+1}}</label>
                 <input class="form-control" name="email" required placeholder="請輸入電子郵件信箱"
-                       [(ngModel)]="data.email" #tEmail="ngModel" />
+                       [(ngModel)]="data[i].email" #tEmail="ngModel" />
                 <p class="help-block" *ngIf="tEmail['errors']?.required">Email 為必填欄位</p>
               </div>
 

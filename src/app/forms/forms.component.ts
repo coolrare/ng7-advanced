@@ -7,9 +7,11 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./forms.component.css']
 })
 export class FormsComponent implements OnInit {
-  data: any = {
+  data: any = [{
     name: 'Will'
-  };
+  }];
+
+  items: any[] = [];
 
   constructor() {}
 
