@@ -29,8 +29,7 @@ export class Forms2Component implements OnInit {
     });
   }
 
-  ToggleEnable(name: string) {
-    const ctrl = this.form.get(name);
+  ToggleEnable(ctrl: FormControl) {
     ctrl.disabled ? ctrl.enable() : ctrl.disable();
   }
 

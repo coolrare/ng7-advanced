@@ -27,17 +27,17 @@ form.errors = {{ form.errors | json }}</pre>
 <div formArrayName="contacts">
 
   <div *ngFor="let item of form.get('contacts')['controls']; let i=index" [formGroupName]="i">
-              <div class="form-group" [class.has-error]="item.controls['name'].dirty && item.controls['name'].invalid">
-                <label>姓名 {{i+1}} <button type="button" (click)="ToggleEnable('name')">Disable/Enable</button></label>
+              <div class="form-group" [class.has-error]="item.get('name').dirty && item.get('name').invalid">
+                <label>姓名 {{i+1}} <button type="button" (click)="ToggleEnable(item.get('name'))">Disable/Enable</button></label>
                 <input class="form-control" formControlName="name" />
-                <p class="help-block" *ngIf="item.controls['name']['errors']?.required">姓名為必填欄位</p>
-                <p class="help-block" *ngIf="item.controls['name']['errors']?.minlength">姓名欄位有長度限制，至少 {{ item.controls['name']['errors'].minlength.requiredLength }} 個字元以上，您輸入 {{ item.controls['name']['errors'].minlength.actualLength }} 個字元。</p>
+                <p class="help-block" *ngIf="item.get('name')['errors']?.required">姓名為必填欄位</p>
+                <p class="help-block" *ngIf="item.get('name')['errors']?.minlength">姓名欄位有長度限制，至少 {{ item.get('name')['errors'].minlength.requiredLength }} 個字元以上，您輸入 {{ item.get('name')['errors'].minlength.actualLength }} 個字元。</p>
               </div>
 
-              <div class="form-group" [class.has-error]="item.controls['email'].dirty && item.controls['email'].invalid">
+              <div class="form-group" [class.has-error]="item.get('email').dirty &&item.get('email').invalid">
                 <label>電子郵件 {{i+1}}</label>
                 <input class="form-control" formControlName="email" />
-                <p class="help-block" *ngIf="item.controls['email']['errors']?.required">Email 為必填欄位</p>
+                <p class="help-block" *ngIf="item.get('email')['errors']?.required">Email 為必填欄位</p>
               </div>
   </div>
 
