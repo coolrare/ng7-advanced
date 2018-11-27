@@ -21,14 +21,26 @@ form.pristine = {{ form.pristine }}
 form.enabled = {{ form.enabled }}
 form.disabled = {{ form.disabled }}
 form.errors = {{ form.errors | json }}</pre>
-              <div class="form-group">
+              <div class="form-group" [class.has-error]="form.get('name').dirty && form.get('name').invalid">
                 <label>姓名</label>
                 <input class="form-control" formControlName="name" />
-                <p class="help-block">Example block-level help text here.</p>
+                <pre>form.get('name').value = {{ form.get('name').value }}
+form.get('name').valid = {{ form.get('name').valid }}
+form.get('name').invalid = {{ form.get('name').invalid }}
+form.get('name').touched = {{ form.get('name').touched }}
+form.get('name').untouched = {{ form.get('name').untouched }}
+form.get('name').dirty = {{ form.get('name').dirty }}
+form.get('name').pristine = {{ form.get('name').pristine }}
+form.get('name').enabled = {{ form.get('name').enabled }}
+form.get('name').disabled = {{ form.get('name').disabled }}
+form.get('name').errors = {{ form.get('name').errors | json }}</pre>
+                <p class="help-block" *ngIf="form.get('name')['errors']?.required">姓名為必填欄位</p>
+                <p class="help-block" *ngIf="form.get('name')['errors']?.minlength">姓名欄位有長度限制，至少 {{ form.get('name')['errors'].minlength.requiredLength }} 個字元以上，您輸入 {{ form.get('name')['errors'].minlength.actualLength }} 個字元。</p>
               </div>
-              <div class="form-group">
+              <div class="form-group" [class.has-error]="form.get('email').dirty && form.get('email').invalid">
                 <label>電子郵件</label>
                 <input class="form-control" formControlName="email" />
+                <p class="help-block" *ngIf="form.get('email')['errors']?.required">Email 為必填欄位</p>
               </div>
               <div class="form-group">
                 <label>Static Control</label>

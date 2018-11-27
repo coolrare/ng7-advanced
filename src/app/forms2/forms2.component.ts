@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-forms2',
@@ -14,8 +14,8 @@ export class Forms2Component implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      name: 'Will',
-      email: 'example@example.com'
+      name: ['Will', [Validators.required, Validators.minLength(3)]],
+      email: ['example@example.com', [Validators.required]]
     });
   }
 
