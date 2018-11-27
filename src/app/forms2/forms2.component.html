@@ -31,6 +31,7 @@ form.errors = {{ form.errors | json }}</pre>
                 <label>姓名 {{i+1}} <button type="button" (click)="ToggleEnable(item.get('name'))">Disable/Enable</button></label>
                 <input class="form-control" formControlName="name" />
                 <p class="help-block" *ngIf="item.get('name')['errors']?.required">姓名為必填欄位</p>
+                <p class="help-block" *ngIf="item.get('name')['errors']?.nameValidator">姓名必須有 will 字樣</p>
                 <p class="help-block" *ngIf="item.get('name')['errors']?.minlength">姓名欄位有長度限制，至少 {{ item.get('name')['errors'].minlength.requiredLength }} 個字元以上，您輸入 {{ item.get('name')['errors'].minlength.actualLength }} 個字元。</p>
               </div>
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
+import { nameValidator } from './nameValidator';
 
 @Component({
   selector: 'app-forms2',
@@ -17,11 +18,11 @@ export class Forms2Component implements OnInit {
 
       contacts: this.fb.array([
         this.fb.group({
-          name: ['Will', [Validators.required, Validators.minLength(3)]],
+          name: ['Will', [Validators.required, Validators.minLength(3), nameValidator]],
           email: ['example@example.com', [Validators.required]]
         }),
         this.fb.group({
-          name: ['Will', [Validators.required, Validators.minLength(3)]],
+          name: ['Will', [Validators.required, Validators.minLength(3), nameValidator]],
           email: ['example@example.com', [Validators.required]]
         })
       ])
